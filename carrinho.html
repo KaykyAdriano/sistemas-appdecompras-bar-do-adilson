@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Carrinho - Distrito</title>
+</head>
+<body>
+
+    <header class="barra-topo">
+        <a href="index.html" class="botao-voltar">⬅ Voltar ao Cardápio</a>
+        <h1>Seu Pedido</h1>
+    </header>
+
+    <main class="carrinho-container">
+        <div id="lista-carrinho"></div>
+
+        <div class="total-pedido">
+            <h3>Total: <span id="valor-total">R$ 0,00</span></h3>
+        </div>
+
+        <div class="acoes-carrinho">
+            <button class="btn-continuar" onclick="window.location.href='index.html'">
+                Adicionar mais itens
+            </button>
+            <button class="btn-fechar" onclick="abrirModal()">
+                Finalizar Compra
+            </button>
+            <button class="btn-limpar" onclick="limparCarrinho()">
+                Limpar
+            </button>
+        </div>
+    </main>
+
+    <div id="modal-identificacao" class="modal-fundo">
+        <div class="modal-caixa">
+            
+            <div id="etapa-identificacao">
+                <h3>Identificação </h3>
+                <p>Informe abaixo os dados corretamente</p>
+                
+                <input type="text" id="cliente-nome" placeholder="Nome Completo">
+                <input type="tel" id="cliente-telefone" placeholder="Telefone de contato com DDD">
+                
+                <div class="botoes-modal">
+                    <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+                    <button class="botao-confirmar" onclick="irParaPagamento()">Ir para Pagamento ➡</button>
+                </div>
+            </div>
+
+            <div id="etapa-pagamento" style="display: none;">
+                <h3>Pagamento</h3>
+                <p>Qual forma de Pagamento?</p>
+
+                <div class="opcoes-pagamento">
+                    <select id="forma-pagamento">
+                        <option value="PIX">PIX</option>
+                        <option value="Cartão de Crédito">Cartão de Crédito</option>
+                        <option value="Cartão de Débito">Cartão de Débito</option>
+                        <option value="Dinheiro">Dinheiro</option>
+                    </select>
+
+                    <input type="text" id="troco-para" placeholder="Precisa de troco para quanto?" style="margin-top: 10px;">
+                </div>
+
+                <div class="botoes-modal">
+                    <button class="btn-cancelar" onclick="voltarParaIdentificacao()">⬅ Voltar</button>
+                    <button class="botao-confirmar" onclick="enviarPedidoZap()">Finalizar Pedido</button>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() { renderizarCarrinho(); };
+
+        // renderiza o carrinho anterior
+        function renderizarCarrinho() {
+            let carrinho = JSON.parse(localStorage.getItem('meuCarrinho')) || [];
+            let container = document.getElementById('lista-carrinho');
+            let total = 0;
+
+            if (carrinho.length === 0) {
+                container.innerHTML = '<div class="carrinho-vazio">Seu carrinho está vazio 😢</div>';
+                document.getElementById('valor-total').innerText = 'R$ 0,00';
+                return;
+            }
+
+container.innerHTML = '';
+            carrinho.forEach((item, index) => {
+                let subtotal = item.preco * item.quantidade;
+                total += subtotal;
+                container.innerHTML += `
+                    <div class="item-carrinho">
+                        <div class="info-item">
+                            <strong>${item.quantidade}x ${item.nome}</strong>
+                            <span>R$ ${item.preco.toFixed(2)}</span>
+                        </div>
+                        <div class="preco-item">R$ ${subtotal.toFixed(2)}</div>
+                        <button class="btn-remove-item" onclick="removerItem(${index})">X</button>
+                    </div>`;
+            });
+            document.getElementById('valor-total').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
+        }
+
+    function abrirModal(){
+        let carrinho = JSON.parse(localStorage.getItem('meuCarrinho')) || []
+        if (carrinho.length === 0) { alert("Carrinho vazio!"); return }
+    
+
+//essas linhas abaixo e que faz o formulario de indetificação funcionar corretamente
+let dados = JSON.parse(localStorage.getItem('dadosCliente'))
+if (dados){
+    document.getElementById('cliente-nome').value = dados.nome
+    document.getElementById(' cliente-telefone').value =dados.telefone
+}
+// e essas linhas abaixo garante que comece a etapa 1 que e a de indetificação 
+document.getElementById('etapa-identificacao').style.display = 'block'
+document.getElementById('etapa-pagamento').style.display = 'none'
+document.getElementById('modal-identificacao').style.display ='flex'
+}
+
+function irParaPagamento(){
+    let nome = document.getElementById('cliente-nome').value;
+    let telefone = document.getElementById('cliente-telefone').value
+
+    if(nome === "" || telefone === ""){
+        alert('Preencha nome e telefone antes de continuar !')
+        return
+    }
+  // essa linha esconde o formulario de identificação  e mostra a etapa 2 que e a de pagamento 
+document.getElementById('etapa-identificacao').style.display='none'
+document.getElementById('etapa-pagamento').style.display = 'block'  
+}
+
+function voltarParaIdentificacao(){
+    document.getElementById('etapa-pagamento').style.display ='none'
+    document.getElementById('etapa-identificacao').style.display = 'block'
+}
+
+function fecharModal(){
+    document.getElementById('modal-identificacao').style.display = 'none'
+}
+
+function enviarPedidoZap(){ 
+// as linhas abaixo serve para coletar todos os dados 
+let nome = document.getElementById('cliente-nome').value
+            let telefone = document.getElementById('cliente-telefone').value
+            let pagamento = document.getElementById('forma-pagamento').value
+            let troco = document.getElementById('troco-para').value
+
+
+// Essas linhas abaixo monta a mensagem que chega no whatshapp do estabelecimento
+let carrinho = JSON.parse(localStorage.getItem('meuCarrinho')) || []
+let total = 0;
+
+            let mensagem = `*NOVO PEDIDO - DISTRITO*\n\n`;
+            mensagem += `*Cliente:* ${nome}\n`;
+            mensagem += `*Contato:* ${telefone}\n`;
+            mensagem += `*Pagamento:* ${pagamento}\n`;
+            if(pagamento === "Dinheiro" && troco !== "") {
+                mensagem += `*Troco para:* ${troco}\n`;
+            }
+            mensagem += `\n*--- ITENS ---*\n`;
+
+            carrinho.forEach(item => {
+                let subtotal = item.preco * item.quantidade;
+                total += subtotal;
+                mensagem += `${item.quantidade}x ${item.nome} \n`;
+            });
+
+            mensagem += `\n*TOTAL: R$ ${total.toFixed(2)}*\n`;
+            
+// essas linhas abaixo envia mensagem para o estebelecimento
+            let numeroBar = "31983866552";  
+            let url = `https://wa.me/${31983866552}?text=${encodeURIComponent(mensagem)}`;
+            
+            // Limpa carrinho (opcional)
+            // localStorage.removeItem('meuCarrinho');
+            
+            window.open(url, '_blank');
+        }
+function limparCarrinho(){
+    if(confirm("Esvaziar carrinho ?")){
+        localStorage.removeItem('meuCarrinho');
+        renderizarCarrinho()
+    }
+}
+function removerItem(i){
+    let c =JSON.parse(localStorage.getItem('meuCarrinho'))
+    c.splice(i, 1)
+    localStorage.setItem('meuCarrinho', JSON.stringify(c))
+    renderizarCarrinho()
+} 
+
+    </script>
+
+</body>
+</html>
