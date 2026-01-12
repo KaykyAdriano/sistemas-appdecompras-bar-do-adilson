@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+    body{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+        background-color: black;
+    }
+    h1{
+        color: #FFC107;
+    }
+    
+    span{
+       color:  #FFC107;
+    }
+
+    .item-lista { 
+    display: flex; 
+    justify-content: space-between; 
+    border-bottom: 1px solid #333; 
+    padding: 10px; 
+    align-items: center; 
+        }
+
+    button{
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+
+    #painel { 
+    display: none; 
+}
+
+    input{
+    padding: 10px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.btn-on{
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+.btn-off{
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+
+
+    </style>
+    <title>Painel do Estoque - Bar do Adilson</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="login-area">
+        <h1>Area Restrita</h1>
+        <input type="password" id="senha" placeholder="Digite sua senha"></input>
+        <button onclick="entrar()">Entrar</button>
+    </div>
+
+    <div id="painel">
+        <div id="lista-admin"></div>
+    </div>
+
+<script>
+  
+    let senhaSalva = ""
+
+    // Essa função e chamada quando clica no botão "Entrar"
+    async function entrar() {
+        senhaSalva = document.getElementById('senha').value
+        await carregarLista()
+    }
+
+    //Responsável apenas por buscar os dados no servidor
+    async function carregarLista() {
+        const res = await fetch('http://localhost:3000/admin/produtos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            // AQUI ESTÁ O SEGREDO: Usamos a variável 'senhaSalva', não o input HTML
+            body: JSON.stringify({ senha: senhaSalva }) 
+        })
+
+        if (res.ok) {
+            document.getElementById('login-area').style.display = 'none'
+            document.getElementById('painel').style.display = 'block'
+            const produtos = await res.json()
+            renderizarAdmin(produtos)
+        } else {
+            alert("Senha incorreta!")
+            // Se a senha estiver errada, mostra o login de novo
+            document.getElementById('login-area').style.display = 'block'
+            document.getElementById('painel').style.display = 'none'
+        }
+    }
+
+    function renderizarAdmin(produtos) {
+        const div = document.getElementById('lista-admin')
+        div.innerHTML = ""
+        produtos.forEach(p => {
+            
+            let corBotao = p.disponivel ? 'background-color: #28a745;' : 'background-color: #dc3545;'
+            
+            div.innerHTML += `
+                <div class="item-lista">
+                    <span style="color: white;">${p.nome}</span>
+                    <button style="${corBotao} color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;" 
+                        onclick="alterarStatus('${p.id}', ${!p.disponivel})">
+                        ${p.disponivel ? 'Disponível' : 'Esgotado'}
+                    </button>
+                </div>
+            `
+        })
+    }
+
+    async function alterarStatus(id, novoStatus) {
+        // Envia a atualização pro servidor
+        await fetch('http://localhost:3000/admin/atualizar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ senha: senhaSalva, id: id, status: novoStatus })
+        })
+        
+       
+     
+        carregarLista() 
+    }
+</script>
+</body>
+</html>

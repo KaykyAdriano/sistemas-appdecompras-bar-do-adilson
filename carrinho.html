@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Carrinho - Bar do Adilson </title>
+</head>
+<body>
+
+    <header class="barra-topo">
+        <a href="index.html" class="botao-voltar">⬅ Voltar ao Cardápio</a>
+        <h1>Seu Pedido</h1>
+    </header>
+
+    <main class="carrinho-container">
+        <div id="lista-carrinho"></div>
+
+        <div class="total-pedido">
+            <h3>Total: <span id="valor-total">R$ 0,00</span></h3>
+        </div>
+
+        <div class="acoes-carrinho">
+            <button class="btn-continuar" onclick="window.location.href='index.html'">
+                Adicionar mais itens
+            </button>
+            <button class="btn-fechar" onclick="abrirModal()">
+                Finalizar Compra
+            </button>
+            <button class="btn-limpar" onclick="abrirModalLimpar()">
+                Limpar
+            </button>
+        </div>
+    </main>
+
+<!--Modal que aparece logo apos clicar em no botao limpar-->
+    <div id="modal-limpar" class="modal-fundo">
+        <div class="modal-caixa">
+            <h3>Tem certeza que deseja remover todos os itens? Essa ação não pode ser desfeita.</h3>
+        <div class="botoes-modal" style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+            <button class="btn-cancelar" onclick="fecharModalLimpar()">Cancelar</button>
+            <button class="botao-confirmar" style="background-color: #dc3545;" onclick="confirmarLimpeza()">Sim, Esvaziar</button> 
+        </div>
+        </div>
+    </div>
+
+
+
+<!--Modal que aparece logo apos clicar no botao finalizar compra-->
+    <div id="modal-identificacao" class="modal-fundo">
+        <div class="modal-caixa">
+            
+            <div id="etapa-identificacao">
+                <h3>Identificação </h3>
+                <p>Informe abaixo os dados corretamente</p>
+                
+                <input type="text" id="cliente-nome" placeholder="Nome Completo">
+                <input type="tel" id="cliente-telefone" placeholder="Telefone de contato com DDD">
+                
+                <div class="botoes-modal">
+                    <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+                    <button class="botao-confirmar" onclick="irParaPagamento()">Ir para Pagamento ➡</button>
+                </div>
+            </div>
+
+            <div id="etapa-pagamento" style="display: none;">
+                <h3>Pagamento</h3>
+                <p>Qual forma de Pagamento?</p>
+
+                <div class="opcoes-pagamento">
+                    <select id="forma-pagamento">
+                        <option value="PIX">PIX</option>
+                       
+                        <option value="Dinheiro">Dinheiro</option>
+                    </select>
+
+                    <input type="text" id="troco-para" placeholder="Precisa de troco para quanto?" style="margin-top: 10px;">
+                </div>
+
+                <div class="botoes-modal">
+                    <button class="btn-cancelar" onclick="voltarParaIdentificacao()">⬅ Voltar</button>
+                    <button class="botao-confirmar" onclick="enviarPedidoZap()">Finalizar Pedido</button>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

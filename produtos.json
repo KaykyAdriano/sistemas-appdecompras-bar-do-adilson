@@ -1,0 +1,329 @@
+[
+  {
+    "id": "Peixe300g",
+    "nome": "FILÉ DE TILÁPIA 300G",
+    "preco": 40,
+    "descricao": "(filé de tilápia 300G, molho rosé e limão)",
+    "imagem": "img/porçaodepeixe300g.png",
+    "categoria": "Porções",
+    "sabores": null,
+    "disponivel": true
+  },
+  {
+    "id": "Peixe500g",
+    "nome": "FILÉ DE TILÁPIA 500G",
+    "preco": 58,
+    "descricao": "(filé de tilápia 500G (pesado cru),molho rosé e limão)",
+    "imagem": "img/porçaodepeixe500g.png",
+    "categoria": "Porções",
+    "sabores": null,
+    "disponivel": true
+  },
+  {
+    "id": "ContraFile300g",
+    "nome": "CONTRA FILÉ COM FRITAS 300G",
+    "preco": 40,
+    "descricao": "(Contra filé 200g, fritas 100g)",
+    "imagem": "img/",
+    "categoria": "Porções",
+    "disponivel": true
+  },
+  {
+    "id": "ContraFile500g",
+    "nome": "CONTRA FILÉ COM FRITAS 500G",
+    "preco": 55,
+    "descricao": "(Contra filé 300g, fritas 200g)",
+    "imagem": "img/",
+    "categoria": "Porções",
+    "disponivel": true
+  },
+  {
+    "id": "contrafilecommandioca300g",
+    "nome": "CONTRA FILÉ COM MANDIOCA 300G",
+    "preco": 40,
+    "descricao": "(Contra filé 200g, mandioca 100g)",
+    "imagem": "img/",
+    "categoria": "Porções",
+    "disponivel": true
+  },
+  {
+    "id": "contrafilecommandioca500g",
+    "nome": "CONTRA FILÉ COM MANDIOCA 500G",
+    "preco": 55,
+    "descricao": "(Contra filé 300g, mandioca 200g)",
+    "imagem": "img/",
+    "categoria": "Porções",
+    "disponivel": true
+  },
+  {
+    "id": "Costelinha300g",
+    "nome": "COSTELINHA COM MANDIOCA 300G",
+    "preco": 40,
+    "descricao": "(Costelinha 200g, mandioca 100g)",
+    "imagem": "img/",
+    "categoria": "Porções",
+    "disponivel": true
+  },
+  {
+    "id": "Costelinha500g",
+    "nome": "COSTELINHA COM MANDIOCA 500G",
+    "preco": 55,
+    "descricao": "(Costelinha 300g, mandioca 200g)",
+    "imagem": "img/",
+    "categoria": "Porções",
+    "disponivel": true
+  },
+  {
+    "id": "Costelinhacomfritas300g",
+    "nome": "COSTELINHA COM FRITAS 300G",
+    "preco": 40,
+    "descricao": "(Costelinha 200g, fritas 100g)",
+    "imagem": "img/",
+    "categoria": "Porções",
+    "disponivel": true
+  },
+  {
+    "id": "Costelinhacomfritas500g",
+    "nome": "COSTELINHA COM FRITAS 500G",
+    "preco": 55,
+    "descricao": "(Costelinha 300g, fritas 200g)",
+    "imagem": "img/",
+    "categoria": "Porções",
+    "disponivel": true
+  },
+  {
+    "id": "Costelinha500g",
+    "nome": "COSTELINHA 500G",
+    "preco": 58,
+    "descricao": "(Costelinha 500g)",
+    "imagem": "img/",
+    "categoria": "Porções",
+    "disponivel": true
+  },
+  {
+    "id": "caldodemandioca",
+    "nome": "CALDO DE MANDIOCA",
+    "preco": 18,
+    "descricao": "(Torresmo e Cebolinha)",
+    "imagem": "img/caldodemandioca.png",
+    "categoria": "Caldos",
+    "disponivel": true
+  },
+  {
+    "id": "caldodefeijao",
+    "nome": "CALDO DE FEIJÃO",
+    "preco": 18,
+    "descricao": "(Torresmo e Cebolinha)",
+    "imagem": "img/caldodefeijao.png",
+    "categoria": "Caldos",
+    "disponivel": true
+  },
+  {
+    "id": "caldodefeijao",
+    "nome": "CALDO DE FEIJÃO",
+    "preco": 18,
+    "descricao": "(Torresmo e Cebolinha)",
+    "imagem": "img/caldodefeijao.png",
+    "categoria": "Caldos",
+    "disponivel": true
+  },
+  {
+    "id": "amstel-473",
+    "nome": "Amstel 473ml Latão",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/amstel.png",
+    "categoria": "cervejas",
+    "disponivel": true
+  },
+  {
+    "id": "brahma",
+    "nome": "Brahama 473ml Latão",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/brahma.png",
+    "categoria": "cervejas",
+    "disponivel": true
+  },
+  {
+    "id": "brahma",
+    "nome": "Brahama 600 ML",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/brahma600.png",
+    "categoria": "cervejas",
+    "disponivel": true
+  },
+  {
+    "id": "original",
+    "nome": "Original 473ml Latão",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/originallatao.png",
+    "categoria": "cervejas",
+    "disponivel": true
+  },
+  {
+    "id": "original",
+    "nome": "Original 600 ML",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/original600ml.png",
+    "categoria": "cervejas",
+    "disponivel": true
+  },
+  {
+    "id": "heineken",
+    "nome": "Heineken 473ml Latão",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/heinekenlatao.png",
+    "categoria": "cervejas",
+    "disponivel": true
+  },
+  {
+    "id": "heineken",
+    "nome": "Heineken 473ml Sem Alcool",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/heinekenlataosemalcool.png",
+    "categoria": "cervejas",
+    "disponivel": true
+  },
+  {
+    "id": "heinekenlongneck",
+    "nome": "Heineken Longneck",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/heinekenlongneck.png",
+    "categoria": "cervejas",
+    "disponivel": true
+  },
+  {
+    "id": "heineken",
+    "nome": "Heineken 600ml",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/heinekenlongneck.png",
+    "categoria": "cervejas",
+    "disponivel": true
+  },
+  {
+    "id": "agua",
+    "nome": "Agua 500ml",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/agua500ml.png",
+    "categoria": "Bebidas",
+    "disponivel": true
+  },
+  {
+    "id": "agua",
+    "nome": "Agua com Gás",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/aguacgas500ml.png",
+    "categoria": "Bebidas",
+    "disponivel": true
+  },
+  {
+    "id": "Guarana",
+    "nome": "Guarana Lata",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/guaranalata.png",
+    "categoria": "Bebidas",
+    "disponivel": true
+  },
+  {
+    "id": "Guarana",
+    "nome": "Guarana 2 Litros",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/guarana2lt.png",
+    "categoria": "Bebidas",
+    "disponivel": true
+  },
+  {
+    "id": "Coca-Cola",
+    "nome": "Cola-Cola Lata",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/cocalata.png",
+    "categoria": "Bebidas",
+    "disponivel": true
+  },
+  {
+    "id": "Coca-Cola",
+    "nome": "Cola-Cola 600ml",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/coca600ml.png",
+    "categoria": "Bebidas",
+    "disponivel": true
+  },
+  {
+    "id": "Coca-Cola KS",
+    "nome": "Cola-Cola KS",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/cocaks.png",
+    "categoria": "Bebidas",
+    "disponivel": true
+  },
+  {
+    "id": "Coca-Cola",
+    "nome": "Cola-Cola 2 Litros",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/coca2lt.png",
+    "categoria": "Bebidas",
+    "disponivel": true
+  },
+  {
+    "id": "suco-del-valle",
+    "nome": "Suco Del Valle",
+    "preco": 6,
+    "descricao": "",
+    "imagem": "img/sucodellvalle.png",
+    "categoria": "Bebidas",
+    "sabores": "Uva,Pêssego,Manga,Maracujá,Caju,Goiaba",
+    "disponivel": true
+  },
+  {
+    "id": "laka",
+    "nome": "Lacta Laka",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/lacta laka.png",
+    "categoria": "Doces",
+    "disponivel": true
+  },
+  {
+    "id": "lactadiamantenegro",
+    "nome": "Lacta Diamante Negro",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/laka diamante negro.png",
+    "categoria": "Doces",
+    "disponivel": true
+  },
+  {
+    "id": "choquito",
+    "nome": "Choquito",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/choquito.png",
+    "categoria": "Doces",
+    "disponivel": true
+  },
+  {
+    "id": "trento",
+    "nome": "Trento",
+    "preco": 0,
+    "descricao": "",
+    "imagem": "img/trento.png",
+    "categoria": "Doces",
+    "disponivel": true
+  }
+]

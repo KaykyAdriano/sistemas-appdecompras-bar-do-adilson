@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cardapio Online</title>
+
+</head>
+<body>
+    <header><div class="cabeçalhoareadocliente">
+        <img src="Logo do bar do adilson.png" alt=""><br>
+        <h2 id="texto-horario">Horario de funcionamento das 18:00 as 22:00</h2>
+       </header>
+
+       <div id="mercadorias">
+          <a href="#Porções">Porções</a>
+          <a href="#caldos">Caldos</a>
+          <a href="#cervejas">Cervejas</a>
+          <a href="#bebidas">Bebidas</a>
+          <a href="#doces">Doces</a>
+        </div>
+        
+
+   <div id="Porções" class="categoria-container"> 
+    <h1>Porções</h1>
+    <div class="lista-produtos" id="lista-Porções"></div> 
+</div>
+
+<div id="caldos" class="categoria-container"> 
+    <h1>Caldos</h1>
+    <div class="lista-produtos" id="lista-Caldos"></div>
+</div>
+
+
+<div id="cervejas" class="categoria-container"> 
+    <h1>Cervejas</h1>
+    <div class="lista-produtos" id="lista-cervejas"></div>
+</div>
+
+<div id="bebidas" class="categoria-container"> 
+    <h1>Bebidas</h1>
+    <div class="lista-produtos" id="lista-Bebidas"></div>
+</div>
+
+
+<div id="doces" class="categoria-container"> 
+    <h1>Doces</h1>
+    <div class="lista-produtos" id="lista-Doces"></div>
+</div>
+
+
+
+<div id="modal-produto" class="modal-fundo">
+    <div class="modal-caixa">
+        <div class="detalhe-container" style="background-color: transparent; padding: 0;">
+            <button class="btn-fechar" onclick="fecharModalProduto()" style="float: right;">Voltar</button>
+            
+            <div class="destaque-imagem">
+                <img id="modal-img">
+            </div>
+            <div class="informaçao-produtos">
+
+                
+                <div id="area-sabores" style="display: none; margin-top: 15px;">
+                <label for="selecao-sabor" style="color:#FFC107; font-weight: bold; display: block; margin-bottom: 5px;">Escolha o sabor :</label>
+                <select  id="selecao-sabor"></select>
+                <span id="modal-preco" class="preco-grande">R$ 0.00</span>
+                </div>
+
+                <h1 id="modal-nome"></h1>
+                <p id="modal-desc" class="informaçao-adicionais"></p>
+            </div>
+
+            <input type="hidden" id="modal-id-produto">
+            <input type="hidden" id="modal-preco-real">
+
+            <div class="selecao-quantidade">
+                <button class="btn-qtd" onclick="diminuir()">-</button>
+                <input type="number" id="quantidade" value="1" readonly>
+                <button class="btn-qtd" onclick="aumentar()">+</button>
+            </div>
+            <button class="botao-pedir" onclick="adicionarAoCarrinhoDinamico()">Adicionar ao carrinho</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="modal-aviso" class="modal-fundo">
+    <div class="modal-caixa">
+        <h3 style="color: #FFC107;">⚠️ Atenção</h3>
+        <p id="mensagem-aviso" style="color: white; margin: 20px 0;">Mensagem aqui</p>
+        
+        <button class="btn-cancelar" onclick="fecharModalAviso()" style="width: 100%; cursor: pointer;">
+            Entendi
+        </button>
+    </div>
+</div>
+
+
+<nav class="menuinferior">
+    <a href="index.html" class="item-menu">
+        <span class ="icone">🏠</span>
+        <span class="texto">Cárdapio</span>
+    </a> 
+    <a href="carrinho.html" class="item-menu" onclick="verCarrinho()">
+        <div class="icone-com-badge">
+        <span class="icone">🛒</span>
+        <span id="contagem-carrinho" class="badge">0</span>
+        </div>
+      <span class="texto">Carrinho</span>
+    </a>
+</nav>
+
+<script src="script.js"></script>
+
+
+<!--a proxima div e um lugar vazio para receber os produtos do servidor-->
+<div id="container-produtos-server">
+
+</div>
+
+
+</body>
+</html>
+
