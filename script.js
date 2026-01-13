@@ -383,4 +383,14 @@ function atualizarCorDoHorario() {
         elementoTexto.style.color = "white"; 
       
     }
+
 }
+
+
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`)
+})
+
+
+const API_BASE = "http://localhost:3000"
