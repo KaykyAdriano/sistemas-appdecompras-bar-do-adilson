@@ -87,7 +87,7 @@
 
     //Responsável apenas por buscar os dados no servidor
     async function carregarLista() {
-        const res = await fetch('http://localhost:3000/admin/produtos', {
+        const res = await fetch(`${API_BASE}/admin/produtos`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // AQUI ESTÁ O SEGREDO: Usamos a variável 'senhaSalva', não o input HTML
@@ -144,5 +144,6 @@
 </body>
 
 </html>
+
 
 
