@@ -75,6 +75,7 @@
     </div>
 
 <script>
+    const API_BASE = "https://backend-bardoadilson.onrender.com"
   
     let senhaSalva = ""
 
@@ -127,7 +128,7 @@
 
     async function alterarStatus(id, novoStatus) {
         // Envia a atualização pro servidor
-        await fetch('http://localhost:3000/admin/atualizar', {
+       await fetch(`${API_BASE}/admin/atualizar`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ senha: senhaSalva, id: id, status: novoStatus })
