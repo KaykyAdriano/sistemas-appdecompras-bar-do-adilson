@@ -55,6 +55,3 @@ app.post('/admin/atualizar', (req, res) => {
     res.json({ mensagem: "Atualizado com sucesso!" })
 })
 
-app.listen(3000, () => {
-    console.log('Servidor do Bar do Adilson rodando na porta 3000')
-})
