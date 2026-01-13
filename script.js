@@ -393,5 +393,6 @@ app.listen(PORT, () => {
 })
 
 
-const API_BASE = "https://backend-bardoadilson.onrender.com"
+
+
 
