@@ -302,7 +302,7 @@ function removerItem(index) {
 
 function buscarProdutosDoServidor(){
     // Chama a rota pública (só traz o que é disponivel=true)
-    fetch('http://localhost:3000/cardapio')
+    fetch(`${API_BASE}/cardapio`)
     .then(resposta => resposta.json())
     .then(dados =>{
         renderizarProdutos(dados)
@@ -391,6 +391,7 @@ const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`)
 })
+
 
 
 
